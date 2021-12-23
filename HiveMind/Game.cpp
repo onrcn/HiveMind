@@ -1,6 +1,6 @@
 #include "Game.h"
 
-// Private Functions
+// Private Functions 
 void Game::initializeVariables()
 {
     this->window = nullptr;
@@ -8,8 +8,8 @@ void Game::initializeVariables()
 
 void Game::initializeWindow()
 {
-    this->videoMode.height = 800;
-    this->videoMode.width = 400;
+    this->videoMode.height = 600;
+    this->videoMode.width = 800;
     this->window = new sf::RenderWindow(this->videoMode, "Hive Mind", sf::Style::Titlebar | sf::Style::Close);
 }
 
@@ -42,6 +42,13 @@ void Game::pollEvents()
 
 void Game::Update()
 {
+    window->setFramerateLimit(60);
+    window->setVerticalSyncEnabled(false);
+    
+    sf::Clock clock;
+    sf::Time dt = sf::seconds(clock.getElapsedTime().asSeconds());
+    clock.restart().asSeconds();
+    
     this->pollEvents();
 }
 
