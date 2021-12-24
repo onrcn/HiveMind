@@ -1,14 +1,15 @@
 #pragma once
+
 #include "Button.h"
+#include <SFML/Graphics.hpp>
+#include <SFML/System.hpp>
+#include <SFML/Window.hpp>
+#include <SFML/Audio.hpp>
+#include <SFML/Network.hpp>
+
 class ActionButton : public Button
 {
 public:
-	void OnHover();
-	virtual void OnClick();
-	void Update(sf::Time dt);
-	void Render(sf::RenderWindow& window);
-private:
+	void onClick();
+	void onHover();
 };
-
-
-

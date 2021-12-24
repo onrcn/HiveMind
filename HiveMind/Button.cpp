@@ -1,8 +1,10 @@
 #include "Button.h"
 
-Button::Button()
-{
 
+Button::Button(float x, float y, float width, float height)
+{
+	this->shape.setPosition(sf::Vector2f(x, y));
+	this->shape.setSize(sf::Vector2f(width, height));
 }
 
 Button::~Button()
@@ -10,12 +12,8 @@ Button::~Button()
 
 }
 
-void Button::Update(sf::Time dt)
+void Button::render(sf::RenderTarget* target)
 {
-
+	target->draw(this->shape);
 }
 
-void Button::Render(sf::RenderWindow& window) 
-{
-	window.draw(button);
-}

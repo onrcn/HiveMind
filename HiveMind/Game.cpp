@@ -1,5 +1,6 @@
 #include "Game.h"
 
+
 // Private Functions 
 void Game::initializeVariables()
 {
@@ -49,6 +50,7 @@ void Game::Update()
     sf::Time dt = sf::seconds(clock.getElapsedTime().asSeconds());
     clock.restart().asSeconds();
     
+
     this->pollEvents();
 }
 
@@ -58,10 +60,9 @@ void Game::Render()
       Renders the game objects.
     */
 
-    this->window->clear(sf::Color(255, 0, 0, 255));
+    this->window->clear(sf::Color(0, 0, 0, 255));
 
     // Draw game objects
-
     this->window->display();
 
 }
