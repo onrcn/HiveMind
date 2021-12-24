@@ -5,6 +5,7 @@
 #include <SFML/Window.hpp>
 #include <SFML/Audio.hpp>
 #include <SFML/Network.hpp>
+#include "Button.h"
 
 class Game {
 private:
@@ -13,6 +14,10 @@ private:
 	sf::Event ev;
 	sf::VideoMode videoMode;
 
+	// Game objects
+	sf::RectangleShape enemy;
+
+	// Private Functions
 	void initializeWindow();
 	void initializeVariables();
 public:

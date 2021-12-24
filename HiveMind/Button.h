@@ -6,14 +6,15 @@
 #include <SFML/Audio.hpp>
 #include <SFML/Network.hpp>
 
+
 class Button
 {
-public:
-	Button();
-	~Button();
-	void Update(sf::Time dt);
-	void Render(sf::RenderWindow &window);
 protected:
-	sf::RectangleShape button;
-};
+	sf::RectangleShape shape;
+	sf::Texture texture;
 
+public:
+	Button(float x, float y, float width, float height);
+	virtual ~Button();
+	void render(sf::RenderTarget* target);
+};
