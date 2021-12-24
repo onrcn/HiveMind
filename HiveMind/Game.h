@@ -6,6 +6,8 @@
 #include <SFML/Audio.hpp>
 #include <SFML/Network.hpp>
 #include "Button.h"
+#include "Textbutton.h"
+#include <iostream>
 
 class Game {
 private:
@@ -15,7 +17,9 @@ private:
 	sf::VideoMode videoMode;
 
 	// Game objects
-	sf::RectangleShape enemy;
+	Textbutton example;
+	sf::Texture logo;
+	sf::Sprite logoSprite;
 
 	// Private Functions
 	void initializeWindow();

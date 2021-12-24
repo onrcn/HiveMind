@@ -1,5 +1,5 @@
 #pragma once
-
+#include <iostream>
 #include <SFML/Graphics.hpp>
 #include <SFML/System.hpp>
 #include <SFML/Window.hpp>
@@ -11,10 +11,11 @@ class Button
 {
 protected:
 	sf::RectangleShape shape;
-	sf::Texture texture;
-
+	sf::Texture *texture;
 public:
-	Button(float x, float y, float width, float height);
+	Button();
+	Button(float x, float y, float width, float height, sf::Texture *texture);
 	virtual ~Button();
-	void render(sf::RenderTarget* target);
+	void Render(sf::RenderTarget* target);
+	sf::RectangleShape GetShape();
 };

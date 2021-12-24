@@ -1,9 +1,29 @@
 #include "Game.h"
 
+//use std::cout for debugging
+
 
 // Private Functions 
 void Game::initializeVariables()
 {
+    sf::Font infoFont;
+    if (!infoFont.loadFromFile("font.ttf"))
+        return;
+    sf::Texture infoBox;
+    sf::Texture logo;
+    sf::Sprite logoSprite(logo);
+    logo.loadFromFile("logo(36x36).png");
+    if (!infoBox.loadFromFile("infoBox.png"))
+    {
+        return;
+    }
+    else
+    {
+        std::cout << infoBox.getSize().x << " " << infoBox.getSize().y << std::endl;
+    }
+
+    Textbutton example(400, 300, infoBox.getSize().x, infoBox.getSize().y, "merhaba", &infoBox, infoFont);
+
     this->window = nullptr;
 }
 
@@ -64,7 +84,8 @@ void Game::Render()
 
     // Draw game objects
     this->window->display();
-
+    this->window->draw(logoSprite);
+    this->example.Render(this->window);
 }
 
 // Constructor and destructors
