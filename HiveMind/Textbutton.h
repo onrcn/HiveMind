@@ -1,15 +1,18 @@
 #pragma once
+#include "dependencies.h"
 #include "Button.h"
+#include "Account.h"
+
 class Textbutton : public Button
 {
 public:
 	Textbutton();
-	Textbutton(float x, float y, float width, float height, std::string headerName, sf::Font font);
+	Textbutton(float x, float y, std::string headerName, sf::Texture *texture, sf::Font font);
 	~Textbutton();
-	void Update(sf::Time dt);
 	void Render(sf::RenderTarget* target);
-private:
+protected:
 	sf::Text header;
 	sf::Text info;
+	std::string name;
 };
 
