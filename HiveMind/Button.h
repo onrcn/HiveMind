@@ -11,10 +11,10 @@ class Button
 {
 protected:
 	sf::RectangleShape shape;
-	sf::Texture *texture;
+	sf::Texture texture;
 public:
 	Button();
-	Button(float x, float y, float width, float height, sf::Texture *texture);
+	Button(float x, float y, float width, float height);
 	virtual ~Button();
 	void Render(sf::RenderTarget* target);
 	sf::RectangleShape GetShape();

@@ -10,7 +10,7 @@
 #include <iostream>
 
 class Game {
-private:
+public:
 	// Variables
 	sf::RenderWindow* window;
 	sf::Event ev;
@@ -20,6 +20,8 @@ private:
 	Textbutton example;
 	sf::Texture logo;
 	sf::Sprite logoSprite;
+	sf::Texture infoBox;
+	sf::Font infoFont;
 
 	// Private Functions
 	void initializeWindow();

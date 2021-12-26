@@ -4,7 +4,7 @@ class Textbutton : public Button
 {
 public:
 	Textbutton();
-	Textbutton(float x, float y, float width, float height, std::string headerName, sf::Texture *texture, sf::Font font);
+	Textbutton(float x, float y, float width, float height, std::string headerName, sf::Font font);
 	~Textbutton();
 	void Update(sf::Time dt);
 	void Render(sf::RenderTarget* target);

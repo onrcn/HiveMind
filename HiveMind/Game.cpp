@@ -6,23 +6,27 @@
 // Private Functions 
 void Game::initializeVariables()
 {
-    sf::Font infoFont;
     if (!infoFont.loadFromFile("font.ttf"))
         return;
-    sf::Texture infoBox;
-    sf::Texture logo;
-    sf::Sprite logoSprite(logo);
-    logo.loadFromFile("logo(36x36).png");
+    if (!logo.loadFromFile("logo.png"))
+    {
+        return;
+    }
+    else
+    {
+        std::cout << "logo size: " << logo.getSize().x << " " << logo.getSize().y << std::endl;
+    }
     if (!infoBox.loadFromFile("infoBox.png"))
     {
         return;
     }
     else
     {
-        std::cout << infoBox.getSize().x << " " << infoBox.getSize().y << std::endl;
+        std::cout << "info box size: " << infoBox.getSize().x << " " << infoBox.getSize().y << std::endl;
     }
 
-    Textbutton example(400, 300, infoBox.getSize().x, infoBox.getSize().y, "merhaba", &infoBox, infoFont);
+    logoSprite = sf::Sprite(logo);
+    Textbutton example(400, 300, infoBox.getSize().x, infoBox.getSize().y, "merhaba", infoFont);
 
     this->window = nullptr;
 }
@@ -80,7 +84,7 @@ void Game::Render()
       Renders the game objects.
     */
 
-    this->window->clear(sf::Color(0, 0, 0, 255));
+    this->window->clear(sf::Color(255, 0, 0, 255));
 
     // Draw game objects
     this->window->display();
