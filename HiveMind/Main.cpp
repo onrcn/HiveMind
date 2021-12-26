@@ -17,7 +17,8 @@ int main(int argc, char** argv)
         std::cout << "file could not load" << std::endl;
     sf::Sprite sprite;
     sprite.setTexture(texture);
-    sprite.setPosition(400, 300);
+    sprite.setScale(3, 3);
+    sprite.setPosition(0, 0);
 
     // the game loop
     while (window.isOpen())

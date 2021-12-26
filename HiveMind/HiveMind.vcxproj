@@ -146,13 +146,21 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="ActionButton.cpp" />
+    <ClCompile Include="Bee.cpp" />
     <ClCompile Include="Button.cpp" />
+    <ClCompile Include="DroneBee.cpp" />
+    <ClCompile Include="Hive.cpp" />
+    <ClCompile Include="HoneyBee.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Textbutton.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ActionButton.h" />
+    <ClInclude Include="Bee.h" />
     <ClInclude Include="Button.h" />
+    <ClInclude Include="DroneBee.h" />
+    <ClInclude Include="Hive.h" />
+    <ClInclude Include="HoneyBee.h" />
     <ClInclude Include="Textbutton.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
