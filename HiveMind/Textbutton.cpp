@@ -26,9 +26,9 @@ Textbutton::~Textbutton()
 }
 
 
-void Textbutton::Render(sf::RenderTarget* target)
+void Textbutton::Render(sf::RenderTarget *window)
 {
-	target->draw(this->shape);
-	target->draw(this->header);
-	target->draw(this->info);
+	window->draw(this->shape);
+	window->draw(this->header);
+	window->draw(this->info);
 }

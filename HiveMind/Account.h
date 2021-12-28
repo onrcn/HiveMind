@@ -9,8 +9,11 @@ private:
 	float money;
 	std::vector<Hive> hives;
 public:
-	void SetHoney(int honey);
-	void SetMoney(int money);
+	Account();
+	~Account();
+	Account(float honey, float money);
+	void SetHoney(float honey);
+	void SetMoney(float money);
 	float GetHoney();
 	float GetMoney();
 	std::vector<Hive> GetHive();

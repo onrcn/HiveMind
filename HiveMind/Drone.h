@@ -2,7 +2,7 @@
 class Drone
 {
 private:
-	float reproductionRate = 0.1;
+	float reproductionRate = 0.1f;
 public:
 	void Reproduce();
 };

@@ -1,13 +1,32 @@
 #include "Account.h"
 
 
-void Account::SetHoney(int honey)
+void Account::SetHoney(float honey)
 {
 	this->honey = honey;
 }
-void Account::SetMoney(int money)
+void Account::SetMoney(float money)
 {
 	this->money = money;
+}
+
+Account::Account()
+{
+	honey = 0;
+	money = 0;
+	hives.push_back(Hive());
+}
+
+Account::~Account()
+{
+	hives.clear();
+}
+
+Account::Account(float honey, float money)
+{
+	this->honey = honey;
+	this->money = money;
+	hives.push_back(Hive());
 }
 
 float Account::GetHoney()
@@ -20,7 +39,7 @@ float Account::GetMoney()
 	return money;
 }
 
-std::vector<Hives> Account::GetHive()
+std::vector<Hive> Account::GetHive()
 {
 	return hives;
 }

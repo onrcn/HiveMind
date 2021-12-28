@@ -10,6 +10,8 @@ private:
 	std::vector<Drone> drones;
 	int beeLimit = 20;
 public:
+	Hive();
+	~Hive();
 	std::vector<Worker> GetWorkers();
 	std::vector<Drone> GetDrones();
 };

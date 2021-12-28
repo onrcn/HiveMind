@@ -21,9 +21,9 @@ Button::~Button()
 	
 }
 
-void Button::Render(sf::RenderTarget* target)
+void Button::Render(sf::RenderTarget &window)
 {
-	target->draw(this->shape);
+	window.draw(this->shape);
 }
 
 sf::RectangleShape Button::GetShape()
