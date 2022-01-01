@@ -1,20 +1,16 @@
 #pragma once
-
-#include <SFML/Graphics.hpp>
-#include <SFML/System.hpp>
-#include <SFML/Window.hpp>
-#include <SFML/Audio.hpp>
-#include <SFML/Network.hpp>
-
+#include "dependencies.h"
+#include "Account.h"
 
 class Button
 {
 protected:
 	sf::RectangleShape shape;
-	sf::Texture texture;
-
 public:
+	Button();
+	Button(float x, float y, float width, float height, sf::Texture *texture);
 	Button(float x, float y, float width, float height);
 	virtual ~Button();
-	void render(sf::RenderTarget* target);
+	void Render(sf::RenderTarget &window);
+	void setTexture(sf::Texture* txt);
 };
