@@ -8,7 +8,6 @@ Textbutton::Textbutton()
 
 Textbutton::Textbutton(float x, float y, sf::Texture* texture, sf::Font font, sf::String infoString)
 {
-
 	this->shape.setPosition(sf::Vector2f(x, y));
 	this->shape.setTexture(texture);
 	this->shape.setSize(static_cast<sf::Vector2f>(texture->getSize()));

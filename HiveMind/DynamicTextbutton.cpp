@@ -24,6 +24,7 @@ DynamicTextbutton::DynamicTextbutton(float x, float y, sf::String headerName, sf
 	info.setCharacterSize(6 * scale);
 	info.setFont(font);
 	info.setPosition(shape.getPosition().x + shape.getSize().x / 2, shape.getPosition().y + shape.getSize().y / 2);
+	info.setFillColor(sf::Color::Black);
 }
 
 void DynamicTextbutton::Update(Account *account)

@@ -1,4 +1,6 @@
 #include "Hive.h"
+#include "Worker.h"
+#include "Drone.h"
 
 Hive::~Hive()
 {

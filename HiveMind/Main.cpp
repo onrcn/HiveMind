@@ -6,6 +6,8 @@
 #include "Textbutton.h"
 #include "Hive.h"
 #include "HiveInfo.h"
+#include "HoneyInfo.h"
+#include "MoneyInfo.h"
 
 int main(int argc, char** argv)
 {
@@ -15,14 +17,23 @@ int main(int argc, char** argv)
     
     //init variables here
     Account player(100, 100);
-    sf::Texture texture;
-    texture.loadFromFile("infobox.png");
+    
+    //load textures here
+    sf::Texture infoboxTexture;
+    infoboxTexture.loadFromFile("infobox.png");
+    sf::Texture logoTexture;
+    logoTexture.loadFromFile("logo.png");
+
     sf::Font font;
     font.loadFromFile("font.ttf");
+    
     GUI gui;
-    Button button(32, 32, 32, 32);
-    button.setTexture(&texture);
-    HiveInfo hives(64, 32, "foo", font, &texture, 3);
+    sf::Sprite logo;
+    logo.setTexture(logoTexture);
+    logo.setPosition(32, 16);
+    logo.setScale(2, 2);
+    MoneyInfo hives(96, 32, "foo", font, &infoboxTexture, 3);
+    
     // the game loop
     while (window.isOpen())
     {
@@ -43,11 +54,9 @@ int main(int argc, char** argv)
         
         //render
         window.clear(bgColor);
-        button.Render(windowRef);
+        window.draw(logo);
         hives.Render(windowRef);
         window.display();
     }
-
-    
     return 0;
 }
