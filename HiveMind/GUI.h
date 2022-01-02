@@ -18,7 +18,7 @@ private:
 	sf::Texture buyTexture;
 	sf::Texture sellTexture;
 	sf::Sprite logoSprite;
-	std::vector<DynamicTextbutton> infoBoxes;
+	std::vector<DynamicTextbutton*> infoBoxes;
 	//referances, required for some SFML functions
 	sf::Font &fontRef = font;
 	sf::Texture infoBoxRef = infoBox;
@@ -44,7 +44,10 @@ public:
 	}
 	~GUI()
 	{
-
+		for (auto element : infoBoxes)
+		{
+			delete[] element;
+		}
 	}
 	void LoadLogo()
 	{
@@ -58,15 +61,15 @@ public:
 	}
 	void LoadHives(float x, float y, sf::String headerName, sf::Font &font, sf::Texture *texture, int scale)
 	{
-		infoBoxes.push_back(HiveInfo(x, y, headerName, font, texture, scale));
+		infoBoxes.push_back(new HiveInfo(x, y, headerName, font, texture, scale));
 	}
 	void LoadHoney(float x, float y, sf::String headerName, sf::Font& font, sf::Texture* texture, int scale)
 	{
-		infoBoxes.push_back(HoneyInfo(x, y, headerName, font, texture, scale));
+		infoBoxes.push_back(new HoneyInfo(x, y, headerName, font, texture, scale));
 	}
 	void LoadMoney(float x, float y, sf::String headerName, sf::Font& font, sf::Texture* texture, int scale)
 	{
-		infoBoxes.push_back(MoneyInfo(x, y, headerName, font, texture, scale));
+		infoBoxes.push_back(new MoneyInfo(x, y, headerName, font, texture, scale));
 	}
 	void LoadClock()
 	{
@@ -76,7 +79,7 @@ public:
 	{
 		for (auto element : infoBoxes)
 		{
-			element.Update(account);
+			element->Update(account);
 		}
 	}
 	void Render(sf::RenderWindow &window)
@@ -84,7 +87,7 @@ public:
 		window.draw(logoSprite);
 		for (auto element : infoBoxes)
 		{
-			element.Render(window);
+			element->Render(window);
 		}
 	}
 };

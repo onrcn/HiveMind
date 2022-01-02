@@ -8,7 +8,7 @@ HoneyInfo::HoneyInfo(float x, float y, sf::String headerName, sf::Font& font, sf
 }
 void HoneyInfo::Update(Account* account)
 {
-	info.setString(std::to_string(account->GetHoney()));
+	info.setString(std::to_string((int)account->GetHoney()));
 }
 void HoneyInfo::Render(sf::RenderWindow &window)
 {

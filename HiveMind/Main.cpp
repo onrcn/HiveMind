@@ -56,6 +56,8 @@ int main(int argc, char** argv)
         sf::Clock clock;
         float dt = clock.getElapsedTime().asSeconds();
 
+
+
         //render
         window.clear(bgColor);
         /*window.draw(logo);220

@@ -27,7 +27,6 @@ Account::Account(float honey, float money)
 	this->honey = honey;
 	this->money = money;
 	hives.push_back(Hive());
-	hives.push_back(Hive());
 }
 
 float Account::GetHoney()
