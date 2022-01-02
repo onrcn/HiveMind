@@ -27,6 +27,7 @@ Account::Account(float honey, float money)
 	this->honey = honey;
 	this->money = money;
 	hives.push_back(Hive());
+	hives.push_back(Hive());
 }
 
 float Account::GetHoney()
@@ -44,7 +45,7 @@ std::vector<Hive> Account::GetHive()
 	return hives;
 }
 
-void Account::Update(sf::Time dt)
+void Account::Update()
 {
 
 }

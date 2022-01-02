@@ -39,7 +39,7 @@ int main(int argc, char** argv)
     {
         sf::Color bgColor(235, 192, 52);
         sf::Event event;
-        hives.Update(&player);
+
         while (window.pollEvent(event))
         {
             if (event.type == sf::Event::Closed)
@@ -48,14 +48,19 @@ int main(int argc, char** argv)
             if ((event.type == sf::Event::KeyPressed) && (event.key.code == sf::Keyboard::Escape))
                 window.close();
         }
+
+        //update
+        hives.Update(&player);
+        gui.Update(&player);
         
         sf::Clock clock;
-        sf::Time dt = sf::seconds(clock.getElapsedTime().asSeconds());
-        
+        float dt = clock.getElapsedTime().asSeconds();
+
         //render
         window.clear(bgColor);
-        window.draw(logo);
-        hives.Render(windowRef);
+        /*window.draw(logo);220
+        hives.Render(windowRef);*/
+        gui.Render(windowRef);
         window.display();
     }
     return 0;

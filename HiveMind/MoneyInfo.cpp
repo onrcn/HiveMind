@@ -11,7 +11,7 @@ void MoneyInfo::Update(Account* account)
 	info.setString(std::to_string((int)account->GetMoney()));
 }
 
-void MoneyInfo::Render(sf::RenderTarget& window)
+void MoneyInfo::Render(sf::RenderWindow &window)
 {
 	window.draw(this->shape);
 	window.draw(this->info);

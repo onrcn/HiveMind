@@ -17,6 +17,6 @@ public:
 	float GetHoney();
 	float GetMoney();
 	std::vector<Hive> GetHive();
-	void Update(sf::Time dt);
+	void Update();
 };
 

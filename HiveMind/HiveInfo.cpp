@@ -9,7 +9,7 @@ void HiveInfo::Update(Account *account)
 {
 	info.setString(std::to_string(account->GetHive().size()));
 }
-void HiveInfo::Render(sf::RenderTarget &window) 
+void HiveInfo::Render(sf::RenderWindow &window) 
 {
 	window.draw(this->shape);
 	window.draw(this->info);

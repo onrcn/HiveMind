@@ -10,7 +10,7 @@ void HoneyInfo::Update(Account* account)
 {
 	info.setString(std::to_string(account->GetHoney()));
 }
-void HoneyInfo::Render(sf::RenderTarget& window)
+void HoneyInfo::Render(sf::RenderWindow &window)
 {
 	window.draw(this->shape);
 	window.draw(this->info);

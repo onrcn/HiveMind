@@ -3,8 +3,8 @@
 #include "Worker.h"
 #include <iostream>
 #include <vector>
-#include "HoneyBee.h"
-#include "DroneBee.h"
+#include "Worker.h"
+#include "Drone.h"
 
 class Hive
 {

@@ -12,6 +12,10 @@ public:
 	{
 		info.setString(someString);
 	}
+	sf::String GetInfo() 
+	{
+		return info.getString();
+	}
 protected:
 	sf::Text info; //this field is static at TextButton and continuously updates at DynamicTextbutton
 };

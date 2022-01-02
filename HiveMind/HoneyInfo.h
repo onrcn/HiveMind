@@ -6,7 +6,7 @@ public:
     HoneyInfo() {};
     HoneyInfo(float x, float y, sf::String headerName, sf::Font& font, sf::Texture* texture, int scale);
     ~HoneyInfo() {};
-    void Update(Account* account);
-    void Render(sf::RenderTarget& window);
+    virtual void Update(Account* account);
+    virtual void Render(sf::RenderWindow &window);
 };
 
