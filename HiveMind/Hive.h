@@ -3,6 +3,9 @@
 #include "Worker.h"
 #include <iostream>
 #include <vector>
+#include "HoneyBee.h"
+#include "DroneBee.h"
+
 class Hive
 {
 private:
