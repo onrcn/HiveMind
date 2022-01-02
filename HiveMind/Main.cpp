@@ -14,7 +14,8 @@ int main(int argc, char** argv)
     //initialize window
     sf::RenderWindow window(sf::VideoMode(800, 600), "Beehive Management!");
     sf::RenderWindow& windowRef = window;
-    
+    window.setFramerateLimit(30);
+
     //init variables here
     Account player(100, 100);
     
@@ -33,12 +34,18 @@ int main(int argc, char** argv)
     logo.setPosition(32, 16);
     logo.setScale(2, 2);
     MoneyInfo hives(96, 32, "foo", font, &infoboxTexture, 3);
-    
+
+    sf::Clock clock;
+
+
     // the game loop
     while (window.isOpen())
     {
         sf::Color bgColor(235, 192, 52);
         sf::Event event;
+
+        sf::Time time = clock.getElapsedTime();
+        float sec = time.asSeconds();
 
         while (window.pollEvent(event))
         {
@@ -49,14 +56,17 @@ int main(int argc, char** argv)
                 window.close();
         }
 
+        if (sec > 2)
+        {
+            player.SetMoney(player.GetMoney() + 5);
+            clock.restart();
+        }
+
+        std::cout << sec << std::endl;
+
         //update
         hives.Update(&player);
         gui.Update(&player);
-        
-        sf::Clock clock;
-        float dt = clock.getElapsedTime().asSeconds();
-
-
 
         //render
         window.clear(bgColor);
