@@ -1,6 +1,4 @@
 #include "Hive.h"
-#include "Worker.h"
-#include "Drone.h"
 
 Hive::~Hive()
 {
@@ -9,17 +7,18 @@ Hive::~Hive()
 
 Hive::Hive()
 {
-    workers.push_back(Worker());
-    drones.push_back(Drone());
+	float honey = 0;
+	workers = 1;
+	drones = 1;
+	beeLimit = 20;
 }
 
 
-std::vector<Worker> Hive::GetWorkers()
+void Hive::produceHoney(float dt)
 {
-    return workers;
+	float honeyProduced = workers * dt * 10;
 }
-
-std::vector<Drone> Hive::GetDrones()
+void Hive::reproduce()
 {
-    return drones;
+
 }

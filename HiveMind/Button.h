@@ -1,6 +1,7 @@
 #pragma once
 #include "dependencies.h"
 #include "Account.h"
+#include "I_Clickable.h"
 
 class Button
 {
@@ -8,9 +9,9 @@ protected:
 	sf::RectangleShape shape;
 public:
 	Button();
-	Button(float x, float y, float width, float height, sf::Texture *texture);
-	Button(float x, float y, float width, float height);
+	Button(float x, float y, sf::Texture *texture, int scale);
 	virtual ~Button();
-	void Render(sf::RenderTarget &window);
+	void Render(sf::RenderWindow &window);
 	void setTexture(sf::Texture* txt);
+	bool MouseOver(sf::RenderWindow& window);
 };

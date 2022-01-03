@@ -1,6 +1,5 @@
 #include "Account.h"
 
-
 void Account::SetHoney(float honey)
 {
 	this->honey = honey;
@@ -28,6 +27,12 @@ Account::Account(float honey, float money)
 	this->money = money;
 	hives.push_back(Hive());
 }
+
+void Account::pushHive(Hive newHive)
+{
+	hives.push_back(newHive);
+}
+
 
 float Account::GetHoney()
 {

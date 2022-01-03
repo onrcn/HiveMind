@@ -6,16 +6,17 @@ Textbutton::Textbutton()
 	
 }
 
-Textbutton::Textbutton(float x, float y, sf::Texture* texture, sf::Font font, sf::String infoString)
+Textbutton::Textbutton(float x, float y, sf::Font& font, sf::Texture* texture, int scale)
 {
-	this->shape.setPosition(sf::Vector2f(x, y));
-	this->shape.setTexture(texture);
-	this->shape.setSize(static_cast<sf::Vector2f>(texture->getSize()));
+	shape.setPosition(x, y);
+	shape.setTexture(texture);
+	shape.setSize(sf::Vector2f(texture->getSize().x, texture->getSize().y));
+	shape.setScale(scale, scale);
 
-	info.setPosition(shape.getPosition().x, shape.getPosition().y + shape.getSize().y / 2);
-	info.setFont(font); 
-	info.setString(infoString);
-	info.setCharacterSize(12);
+	info.setCharacterSize(4 * scale);
+	info.setFont(font);
+	info.setPosition(shape.getPosition().x + shape.getSize().x / 2, shape.getPosition().y + shape.getSize().y / 2);
+	info.setFillColor(sf::Color::Black);
 }
 
 Textbutton::~Textbutton()
@@ -24,8 +25,8 @@ Textbutton::~Textbutton()
 }
 
 
-void Textbutton::Render(sf::RenderTarget *window)
+void Textbutton::Render(sf::RenderWindow &window)
 {
-	window->draw(this->shape);
-	window->draw(this->info);
+	window.draw(this->shape);
+	window.draw(this->info);
 }

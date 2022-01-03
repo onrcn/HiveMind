@@ -1,13 +1,14 @@
 #pragma once
 #include "dependencies.h"
 #include "Account.h"
-#include "Worker.h"
-#include "Drone.h"
 #include "Hive.h"
+#include "Textbutton.h"
 #include "DynamicTextbutton.h"
 #include "HiveInfo.h"
 #include "MoneyInfo.h"
 #include "HoneyInfo.h"
+#include "BuyHives.h"
+
 
 class GUI
 {
@@ -19,6 +20,11 @@ private:
 	sf::Texture sellTexture;
 	sf::Sprite logoSprite;
 	std::vector<DynamicTextbutton*> infoBoxes;
+	Textbutton market[3][2];
+	Textbutton actionsBar;
+
+	int honeyPrice;
+	int hivePrice;
 	//referances, required for some SFML functions
 	sf::Font &fontRef = font;
 	sf::Texture infoBoxRef = infoBox;
@@ -26,8 +32,12 @@ private:
 	sf::Texture &buyTextureRef = buyTexture;
 	sf::Texture& sellTextureRef = sellTexture;
 public:
+	BuyHives buyHives;
+	BuyHives sellHoney; //change this to SellHoney class once implemented
 	GUI()
 	{
+		hivePrice = 100;
+		honeyPrice = 100;
 		//load textures, fonts, etc.
 		infoBox.loadFromFile("infobox.png");
 		logoTexture.loadFromFile("logo.png");
@@ -40,7 +50,7 @@ public:
 		LoadHives(96, 32, "Hives", fontRef, &infoBox, 2);
 		LoadHoney(144, 32, "Honey", fontRef, &infoBox, 2);
 		LoadMoney(192, 32, "Money", fontRef, &infoBox, 2);
-
+		LoadMarket(240, 200, fontRef, &infoBox, 4);
 	}
 	~GUI()
 	{
@@ -71,7 +81,27 @@ public:
 	{
 		infoBoxes.push_back(new MoneyInfo(x, y, headerName, font, texture, scale));
 	}
-	void LoadClock()
+	void LoadMarket(float x, float y, sf::Font& font, sf::Texture* texture, int scale)
+	{
+		for (int i = 0; i < 3; i++)
+		{
+			for (int j = 0; j < 2; j++)
+			{
+				market[i][j] = Textbutton(x + j * texture->getSize().x * scale, y + i * texture->getSize().y * scale, font, texture, scale);
+			}
+		}
+		market[0][0].SetInfo("Product");
+		market[0][1].SetInfo("Price");
+		market[1][0].SetInfo("Hives");
+		market[1][1].SetInfo(std::to_string(hivePrice));
+		market[2][0].SetInfo("Honey");
+		market[2][1].SetInfo(std::to_string(honeyPrice));
+		actionsBar = Textbutton(432, 200, font, texture, scale);
+		actionsBar.SetInfo("Action");
+		buyHives = BuyHives(432, 248, &buyTextureRef, scale, hivePrice);
+		sellHoney = BuyHives(432, 296, &sellTextureRef, scale, honeyPrice);
+	}
+	void loadBuySell()
 	{
 
 	}
@@ -89,6 +119,16 @@ public:
 		{
 			element->Render(window);
 		}
+		for (int i = 0; i < 3; i++)
+		{
+			for (int j = 0; j < 2; j++)
+			{
+				market[i][j].Render(window);
+			}
+		}
+		actionsBar.Render(window);
+		buyHives.Render(window);
+		sellHoney.Render(window);
 	}
 };
 

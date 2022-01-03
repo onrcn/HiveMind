@@ -1,21 +1,43 @@
 #pragma once
-#include "Drone.h"
-#include "Worker.h"
 #include <iostream>
 #include <vector>
-#include "Worker.h"
-#include "Drone.h"
 
 class Hive
 {
 private:
-	std::vector<Worker> workers;
-	std::vector<Drone> drones;
-	int beeLimit = 20;
+	float honey = 0;
+	int workers;
+	int drones;
+	int beeLimit;
 public:
+	//constructors
 	Hive();
 	~Hive();
-	std::vector<Worker> GetWorkers();
-	std::vector<Drone> GetDrones();
+
+	//tasks
+	void produceHoney(float dt);
+	void reproduce();
+
+	//getters and setters
+	int getWorkers()
+	{
+		return workers;
+	}
+	int getDrones()
+	{
+		return drones;
+	}
+	int getLimit()
+	{
+		return beeLimit;
+	}
+	void setWorkers(int number)
+	{
+		workers = number;
+	}
+	void setDrones(int number)
+	{
+		drones = number;
+	}
 };
 

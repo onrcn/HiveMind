@@ -16,6 +16,7 @@ public:
 	void SetMoney(float money);
 	float GetHoney();
 	float GetMoney();
+	void pushHive(Hive newHive);
 	std::vector<Hive> GetHive();
 	void Update();
 };

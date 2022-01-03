@@ -37,7 +37,6 @@ int main(int argc, char** argv)
 
     sf::Clock clock;
 
-
     // the game loop
     while (window.isOpen())
     {
@@ -46,32 +45,44 @@ int main(int argc, char** argv)
 
         sf::Time time = clock.getElapsedTime();
         float sec = time.asSeconds();
+        clock.restart();
 
         while (window.pollEvent(event))
         {
-            if (event.type == sf::Event::Closed)
-                window.close();
             // The escape key was pressed
             if ((event.type == sf::Event::KeyPressed) && (event.key.code == sf::Keyboard::Escape))
                 window.close();
+            switch (event.type)
+            {
+            case sf::Event::Closed:
+                window.close();
+                break;
+            case sf::Event::MouseButtonPressed:
+                //gui'de buyHives objesi var ve obje button classýndan MouseOver diye bir fonksiyonu inherit ediyor ama þu an fonksiyon çalýþmýyor (emin deðilim)
+                //ekrana týkladýðýmýzda program mouse pozisyonunu oyun penceresine relative olarak deðil monitördeki konumuna göre tespit ediyor
+                std::cout << "Mouse click pressed at" << sf::Mouse::getPosition().x << " - " << sf::Mouse::getPosition().y << std::endl;
+                std::cout << "buy button at: " << gui.buyHives.getPosition().x << " - " << gui.buyHives.getPosition().y << std::endl;
+                if (gui.buyHives.MouseOver(windowRef))
+                {
+                    std::cout << "Mouse click pressed on buy button" << std::endl;
+                    gui.buyHives.OnClick(&player);
+                }
+                break;
+            case sf::Event::MouseMoved:
+                if (gui.buyHives.MouseOver(windowRef))
+                {
+                    std::cout << "Mouse on buy button" << std::endl;
+                }
+                break;
+            }
         }
 
-        if (sec > 2)
-        {
-            player.SetMoney(player.GetMoney() + 5);
-            clock.restart();
-        }
-
-        std::cout << sec << std::endl;
-
-        //update
+        //update objects
         hives.Update(&player);
         gui.Update(&player);
 
-        //render
+        //render objects
         window.clear(bgColor);
-        /*window.draw(logo);220
-        hives.Render(windowRef);*/
         gui.Render(windowRef);
         window.display();
     }
