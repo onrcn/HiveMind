@@ -13,7 +13,7 @@ int main(int argc, char** argv)
 {
     srand(time(NULL));
     //initialize window
-    sf::RenderWindow window(sf::VideoMode(800, 600), "Beehive Management!");
+    sf::RenderWindow window(sf::VideoMode(800, 600), "Beehive Management!", sf::Style::Fullscreen);
     sf::RenderWindow& windowRef = window;
     window.setFramerateLimit(30);
 
