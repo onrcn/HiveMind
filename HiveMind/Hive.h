@@ -15,8 +15,9 @@ public:
 	~Hive();
 
 	//tasks
-	void produceHoney(float dt);
-	void reproduce();
+	float produceHoney(float dt);
+	void reproduce(float dt);
+
 
 	//getters and setters
 	int getWorkers()

@@ -8,6 +8,7 @@
 #include "MoneyInfo.h"
 #include "HoneyInfo.h"
 #include "BuyHives.h"
+#include "SellHoney.h"
 
 
 class GUI
@@ -33,7 +34,7 @@ private:
 	sf::Texture& sellTextureRef = sellTexture;
 public:
 	BuyHives buyHives;
-	BuyHives sellHoney; //change this to SellHoney class once implemented
+	SellHoney sellHoney; //change this to SellHoney class once implemented
 	GUI()
 	{
 		hivePrice = 100;
@@ -99,7 +100,7 @@ public:
 		actionsBar = Textbutton(432, 200, font, texture, scale);
 		actionsBar.SetInfo("Action");
 		buyHives = BuyHives(432, 248, &buyTextureRef, scale, hivePrice);
-		sellHoney = BuyHives(432, 296, &sellTextureRef, scale, honeyPrice);
+		sellHoney = SellHoney(432, 296, &sellTextureRef, scale, honeyPrice);
 	}
 	void loadBuySell()
 	{

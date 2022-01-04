@@ -11,6 +11,7 @@
 
 int main(int argc, char** argv)
 {
+    srand(time(NULL));
     //initialize window
     sf::RenderWindow window(sf::VideoMode(800, 600), "Beehive Management!");
     sf::RenderWindow& windowRef = window;
@@ -44,32 +45,32 @@ int main(int argc, char** argv)
         sf::Event event;
 
         sf::Time time = clock.getElapsedTime();
-        float sec = time.asSeconds();
+        float dt = time.asSeconds();
         clock.restart();
 
-        while (window.pollEvent(event))
+        while (window.pollEvent(event)) // Game loop
         {
-            // The escape key was pressed
-            if ((event.type == sf::Event::KeyPressed) && (event.key.code == sf::Keyboard::Escape))
-                window.close();
-            switch (event.type)
+            switch (event.type) // Her event için durumlarý kontrol et
             {
-            case sf::Event::Closed:
+            case sf::Event::Closed: // Kapamak icin carpi butonuna basin
                 window.close();
                 break;
             case sf::Event::MouseButtonPressed:
-                //gui'de buyHives objesi var ve obje button classýndan MouseOver diye bir fonksiyonu inherit ediyor ama þu an fonksiyon çalýþmýyor (emin deðilim)
-                //ekrana týkladýðýmýzda program mouse pozisyonunu oyun penceresine relative olarak deðil monitördeki konumuna göre tespit ediyor
-                std::cout << "Mouse click pressed at" << sf::Mouse::getPosition().x << " - " << sf::Mouse::getPosition().y << std::endl;
-                std::cout << "buy button at: " << gui.buyHives.getPosition().x << " - " << gui.buyHives.getPosition().y << std::endl;
-                if (gui.buyHives.MouseOver(windowRef))
+                std::cout << "Mouse click pressed at " << sf::Mouse::getPosition().x << " - " << sf::Mouse::getPosition().y << std::endl;
+                std::cout << "Buy button at: " << gui.buyHives.getPosition().x << " - " << gui.buyHives.getPosition().y << std::endl;
+                if (gui.buyHives.MouseOver(windowRef)) // Buy buttonuna tiklandiginda satin alma islemini gerceklestir.
                 {
                     std::cout << "Mouse click pressed on buy button" << std::endl;
                     gui.buyHives.OnClick(&player);
                 }
+                if (gui.sellHoney.MouseOver(windowRef)) // Sell buttonuna tiklandiginda satma islemini gerceklestir.
+                {
+                    std::cout << "Mouse click pressed on sell button" << std::endl;
+                    gui.sellHoney.OnClick(&player);
+                }
                 break;
             case sf::Event::MouseMoved:
-                if (gui.buyHives.MouseOver(windowRef))
+                if (gui.buyHives.MouseOver(windowRef)) // Bu sadece debug icin 
                 {
                     std::cout << "Mouse on buy button" << std::endl;
                 }
@@ -79,6 +80,7 @@ int main(int argc, char** argv)
 
         //update objects
         hives.Update(&player);
+        player.Update(dt);
         gui.Update(&player);
 
         //render objects

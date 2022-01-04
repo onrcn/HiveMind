@@ -18,6 +18,6 @@ public:
 	float GetMoney();
 	void pushHive(Hive newHive);
 	std::vector<Hive> GetHive();
-	void Update();
+	void Update(float dt);
 };
 

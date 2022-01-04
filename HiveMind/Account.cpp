@@ -49,7 +49,11 @@ std::vector<Hive> Account::GetHive()
 	return hives;
 }
 
-void Account::Update()
+void Account::Update(float dt)
 {
-
+	for (auto i : hives)
+	{
+		i.reproduce(dt);
+		SetHoney(GetHoney() + i.produceHoney(dt));
+	}
 }

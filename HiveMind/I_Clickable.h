@@ -7,4 +7,3 @@ public:
 	virtual void OnClick(Account *account) = 0;
 	virtual ~I_Clickable() {};
 };
-

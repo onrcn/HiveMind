@@ -35,18 +35,18 @@ void Button::setTexture(sf::Texture* txt)
 
 bool Button::MouseOver(sf::RenderWindow& window)
 {
-	float mouseX = sf::Mouse::getPosition(window).x;
-	float mouseY = sf::Mouse::getPosition(window).y;
+    float mouseX = sf::Mouse::getPosition(window).x;
+    float mouseY = sf::Mouse::getPosition(window).y;
 
-	float shapeX = shape.getPosition().x;
-	float shapeY = shape.getPosition().y;
+    float shapeX = shape.getPosition().x;
+    float shapeY = shape.getPosition().y;
 
-	float shapeWidthX = shape.getPosition().x + shape.getSize().x;
-	float shapeHeightY = shape.getPosition().y + shape.getSize().y;
-	//AABB collision detection
-	if (mouseX > shapeX && mouseX < shapeWidthX && mouseY > shapeY && mouseY < shapeHeightY)
-	{
-		return true;
-	}
-	return false;
+    float shapeWidthX = shape.getPosition().x + shape.getSize().x * shape.getScale().x;
+    float shapeHeightY = shape.getPosition().y + shape.getSize().y * shape.getScale().y;
+    //AABB collision detection
+    if (mouseX >= shapeX && mouseX <= shapeWidthX && mouseY >= shapeY && mouseY <= shapeHeightY)
+    {
+        return true;
+    }
+    return false;
 }

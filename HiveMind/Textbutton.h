@@ -19,4 +19,3 @@ public:
 protected:
 	sf::Text info; //this field is static at TextButton and continuously updates at DynamicTextbutton
 };
-

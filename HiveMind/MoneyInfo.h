@@ -9,4 +9,3 @@ public:
     virtual void Update(Account *account);
     virtual void Render(sf::RenderWindow &window);
 };
-
