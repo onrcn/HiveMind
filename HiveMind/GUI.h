@@ -34,12 +34,12 @@ private:
 	sf::Texture& sellTextureRef = sellTexture;
 public:
 	BuyHives buyHives;
-	SellHoney sellHoney; //change this to SellHoney class once implemented
+	SellHoney sellHoney;
 	GUI()
 	{
-		hivePrice = 100;
-		honeyPrice = 100;
-		//load textures, fonts, etc.
+		hivePrice = 200; // Settings default hive price to 200
+		honeyPrice = 50; // Setting honey price to 50
+		// load textures, fonts, etc.
 		infoBox.loadFromFile("infobox.png");
 		logoTexture.loadFromFile("logo.png");
 		buyTexture.loadFromFile("buyTexture.png");
@@ -65,10 +65,6 @@ public:
 		logoSprite.setTexture(logoTexture);
 		logoSprite.setPosition(32, 16);
 		logoSprite.setScale(2, 2);
-	}
-	void LoadBees()
-	{
-
 	}
 	void LoadHives(float x, float y, sf::String headerName, sf::Font &font, sf::Texture *texture, int scale)
 	{
@@ -102,10 +98,7 @@ public:
 		buyHives = BuyHives(432, 248, &buyTextureRef, scale, hivePrice);
 		sellHoney = SellHoney(432, 296, &sellTextureRef, scale, honeyPrice);
 	}
-	void loadBuySell()
-	{
 
-	}
 	void Update(Account *account)
 	{
 		for (auto element : infoBoxes)

@@ -1,6 +1,6 @@
 #pragma once
 #include "Account.h"
-
+// Abstraction
 class I_Clickable
 {
 public:

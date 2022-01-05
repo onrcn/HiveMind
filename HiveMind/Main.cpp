@@ -12,23 +12,24 @@
 int main(int argc, char** argv)
 {
     srand(time(NULL));
-    //initialize window
+    // initialize window
     sf::RenderWindow window(sf::VideoMode(800, 600), "Beehive Management!", sf::Style::Fullscreen);
     sf::RenderWindow& windowRef = window;
     window.setFramerateLimit(30);
 
-    //init variables here
-    Account player(100, 100);
+    // init variables here
+    Account player(50, 50);
     
-    //load textures here
+    // load textures here
     sf::Texture infoboxTexture;
     infoboxTexture.loadFromFile("infobox.png");
     sf::Texture logoTexture;
     logoTexture.loadFromFile("logo.png");
-
+    // Loading the pixel font
     sf::Font font;
     font.loadFromFile("font.ttf");
     
+    // Using the gui class
     GUI gui;
     sf::Sprite logo;
     logo.setTexture(logoTexture);
@@ -36,22 +37,26 @@ int main(int argc, char** argv)
     logo.setScale(2, 2);
     MoneyInfo hives(96, 32, "foo", font, &infoboxTexture, 3);
 
-    sf::Clock clock;
+    sf::Clock clock; // Clock variable to keep the time
 
     // the game loop
     while (window.isOpen())
     {
-        sf::Color bgColor(235, 192, 52);
+        sf::Color bgColor(163, 166, 67);
         sf::Event event;
 
         sf::Time time = clock.getElapsedTime();
         float dt = time.asSeconds();
         clock.restart();
 
-        while (window.pollEvent(event)) // Game loop
+        while (window.pollEvent(event)) // The game loop
         {
             switch (event.type) // Her event için durumlarý kontrol et
             {
+            case sf::Event::KeyPressed:
+                if (event.key.code == sf::Keyboard::Escape) // Kapamak icin ESC tusunu kullanmak
+                    window.close();
+                break;
             case sf::Event::Closed: // Kapamak icin carpi butonuna basin
                 window.close();
                 break;
@@ -70,7 +75,7 @@ int main(int argc, char** argv)
                 }
                 break;
             case sf::Event::MouseMoved:
-                if (gui.buyHives.MouseOver(windowRef)) // Bu sadece debug icin 
+                if (gui.buyHives.MouseOver(windowRef)) // debug icin 
                 {
                     std::cout << "Mouse on buy button" << std::endl;
                 }

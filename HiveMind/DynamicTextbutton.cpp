@@ -27,11 +27,6 @@ DynamicTextbutton::DynamicTextbutton(float x, float y, sf::String headerName, sf
 	info.setFillColor(sf::Color::Black);
 }
 
-void DynamicTextbutton::Update(Account *account)
-{
-	
-}
-
 void DynamicTextbutton::Render(sf::RenderWindow &window)
 {
 	window.draw(shape);

@@ -12,6 +12,7 @@ public:
 	Account();
 	~Account();
 	Account(float honey, float money);
+
 	void SetHoney(float honey);
 	void SetMoney(float money);
 	float GetHoney();

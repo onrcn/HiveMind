@@ -12,4 +12,3 @@ public:
 	sf::Vector2f getPosition();
 	~BuyHives() {};
 };
-

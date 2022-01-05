@@ -1,12 +1,5 @@
 #include "Hive.h"
-#include <math.h>
-#include <stdlib.h>
 
-
-Hive::~Hive()
-{
-
-}
 
 Hive::Hive()
 {
@@ -16,6 +9,10 @@ Hive::Hive()
 	beeLimit = 20;
 }
 
+Hive::~Hive()
+{
+
+}
 
 float Hive::produceHoney(float dt)
 {
@@ -24,17 +21,20 @@ float Hive::produceHoney(float dt)
 }
 void Hive::reproduce(float dt)
 {
-	int change = rand() % 2;
-	if ((getWorkers() + getDrones() + 1) < 20) {
-		if (dt == 5)
+	int chance = rand() % 2;
+	if ((getDrones() + getWorkers()) <= beeLimit)
+	{
+
+		switch (chance)
 		{
-			switch (change)
-			{
-			case 0:
-				setWorkers(getWorkers() + 1);
-			case 1:
-				setDrones(getDrones() + 1);
-			}
+		case 0:
+			setWorkers(getWorkers() + getDrones());
+			break;
+		case 1:
+			setDrones(2 * getDrones());
+			break;
 		}
+		std::cout << getDrones() + getWorkers() << std::endl;
+
 	}
 }

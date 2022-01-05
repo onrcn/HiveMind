@@ -33,9 +33,6 @@
     <ClCompile Include="DynamicTextbutton.cpp">
       <Filter>Kaynak Dosyalar</Filter>
     </ClCompile>
-    <ClCompile Include="BeeInfo.cpp">
-      <Filter>Kaynak Dosyalar</Filter>
-    </ClCompile>
     <ClCompile Include="HiveInfo.cpp">
       <Filter>Kaynak Dosyalar</Filter>
     </ClCompile>
@@ -75,9 +72,6 @@
       <Filter>Üst Bilgi Dosyaları</Filter>
     </ClInclude>
     <ClInclude Include="GUI.h">
-      <Filter>Üst Bilgi Dosyaları</Filter>
-    </ClInclude>
-    <ClInclude Include="BeeInfo.h">
       <Filter>Üst Bilgi Dosyaları</Filter>
     </ClInclude>
     <ClInclude Include="HiveInfo.h">

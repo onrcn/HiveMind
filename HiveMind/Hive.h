@@ -1,10 +1,12 @@
 #pragma once
 #include <iostream>
 #include <vector>
+#include <math.h>
+#include <stdlib.h>
 
 class Hive
 {
-private:
+protected:
 	float honey = 0;
 	int workers;
 	int drones;
@@ -17,7 +19,6 @@ public:
 	//tasks
 	float produceHoney(float dt);
 	void reproduce(float dt);
-
 
 	//getters and setters
 	int getWorkers()

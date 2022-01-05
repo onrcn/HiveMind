@@ -33,7 +33,6 @@ void Account::pushHive(Hive newHive)
 	hives.push_back(newHive);
 }
 
-
 float Account::GetHoney()
 {
 	return honey;

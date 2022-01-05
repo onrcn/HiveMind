@@ -9,7 +9,7 @@ public:
 	DynamicTextbutton();
 	~DynamicTextbutton();
 	DynamicTextbutton(float x, float y, sf::String headerName, sf::Font& font, sf::Texture* texture, int scale);
-	virtual void Update(Account *account);
+	virtual void Update(Account *account) = 0;
 	virtual void Render(sf::RenderWindow &window);
 	void SetScale(float scale);
 };

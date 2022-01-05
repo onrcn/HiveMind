@@ -1,7 +1,7 @@
 #include "Button.h"
 
-//load textures in game.cpp and generate a texture
-//dont forget to set the texture in game.cpp
+// load textures in game.cpp and generate a texture
+// dont forget to set the texture in game.cpp
 
 Button::Button()
 {
